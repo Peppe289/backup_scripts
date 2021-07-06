@@ -81,23 +81,23 @@ goto finish
 title Backup Script - Full Backup
 for /F %%x in ('%adb% -s %device% shell ls /sdcard') do (
 	if "%%x" NEQ "Android" (
-    	echo Pulling %%x...
-    	%adb% -s %device% pull /sdcard/%%x .
-  	) ELSE (
-    	echo Skipping Android folder BUT backing up Whatsapp folder
-    	mkdir Android\media\com.whatsapp\WhatsApp
-    	%adb% -s %device% pull /sdcard/Android/media/com.whatsapp/WhatsApp Android\media\com.whatsapp\WhatsApp
-  	)
-  	if %ERRORLEVEL% == 1 ( goto error )
+		echo Pulling %%x...
+		%adb% -s %device% pull /sdcard/%%x .
+	) ELSE (
+		echo Skipping Android folder BUT backing up Whatsapp folder
+		mkdir Android\media\com.whatsapp\WhatsApp
+		%adb% -s %device% pull /sdcard/Android/media/com.whatsapp/WhatsApp Android\media\com.whatsapp\WhatsApp
+	)
+	if %ERRORLEVEL% == 1 ( goto error )
 )
 goto finish
 
 :fullrestore
 title Backup Script - Full Restore
 for /F %%x in ('dir /B/D %~dp0') do (
-  	echo Pushing %%x...
-  	%adb% -s %device% push %%x /sdcard/
-  	if %ERRORLEVEL% == 1 ( goto error )
+	echo Pushing %%x...
+	%adb% -s %device% push %%x /sdcard/
+	if %ERRORLEVEL% == 1 ( goto error )
 )
 goto finish
 endlocal

@@ -15,6 +15,11 @@ Usage:
 -------
 - Double click on `backup.cmd`, then follow the instructions.
 
+Notes:
+------
+- You can edit your device's folder to be backed-up by editing the `device_list` variable in the code.<br>
+Just follow the template.
+
 Credits:
 --------
-StackOverflow *cuz why not lol*
+StackOverflow, [Temblast's AdbSync](http://www.temblast.com/adbsync.htm)
