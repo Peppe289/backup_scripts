@@ -2,8 +2,8 @@
 @echo off
 title Backup Script
 setlocal enableDelayedExpansion enableExtensions
-set adbsync=%~dp0tools\adbsync.exe
-set adb=%~dp0tools\adb\adb.exe
+set adbsync=%~dp0win_tools\adbsync.exe
+set adb=%~dp0win_tools\adb\adb.exe
 
 :: Editable vars
 set "device_list=DCIM Download Documents Pictures WhatsApp Movies Migrate"
